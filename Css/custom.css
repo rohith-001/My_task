@@ -1,0 +1,26 @@
+.error{
+	color:red;
+}
+
+ul.items li{
+	padding:8px;
+	font-size:17px;
+	border-bottom:#ccc 1px dashed;
+	list-style:none;
+	padding-left:10px;
+}
+
+ul.items li a{
+	color:#666;
+}
+
+.msg{
+	padding:5px 0;
+	border-top:#ccc solid 2px;
+	border-bottom:#ccc solid 2px;
+	margin-bottom:3px;
+}
+
+form input[type="text"],form input[type="date"],form input[type="email"],form input[type="password"],form input[type="password2"],select,textarea{width:300px;}
+
+.sidebar-nav input[type='text'],.sidebar-nav input[type='password']{width:210px;}
