@@ -4,7 +4,7 @@ LIVE WEBSITE IS HERE http://mytask.epizy.com/
 I am only focus on the back-end not front-end
 
 NOTE!!
+TO RUN THIS PROJECT FILE INTO YOUR LOCAL SYSTEM
 
-Add those file into your htdocs/php/MYTASK/-->PROJECT FILES
-
-And don't forget to change the config file DB details
+1.Add those files into your htdocs/php/MYTASK/-->PROJECT FILES
+2.And don't forget to change the config file DB details
