@@ -81,33 +81,55 @@
 		}
 }
 ?>
-
-<h3>Register</h3>
-<p>Please use the form below to register at our site</p>
-<?php
-if(!empty($errors)){
-	echo "<ul>";
- 	foreach($errors as $error){
-		echo "<li class=\"error\">".$error."</li>";
-	}
-	echo "</ul>";
-}
-?>
- <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
- 				<label>First Name: </label>
-                <input type="text" name="first_name" value="<?php if($_POST['first_name'])echo $_POST['first_name'] ?>" /><br />
-                <label>Last Name: </label>
-                <input type="text" name="last_name" value="<?php if($_POST['first_name'])echo $_POST['last_name'] ?>" /><br />
- 
-                <label>Email: </label>
-                <input type="text" name="email" value="<?php if($_POST['email'])echo $_POST['email'] ?>" /><br />
-                <label>Username: </label>
-                <input type="text" name="username" value="<?php if($_POST['username'])echo $_POST['username'] ?>" /><br />
-                <label>Password: </label>
-                <input type="password" name="password" value="<?php if($_POST['password'])echo $_POST['password'] ?>"/><br />
-                 <label>Confirm Password: </label>
-                <input type="password2" name="password2" value="<?php if($_POST['password2'])echo $_POST['password2'] ?>" /><br />
-                <br />
-                <input type="submit" value="Register" name="register_submit" />
+<div class="d-flex flex-row">
+<div class="w-50 pt-3 px-4 mt-4" style="height: 100vh;">
+<h3 class="text-primary font-weight-bold">Register</h3>
+	<p>Please use the form below to register at our site</p>	
+	<form class="form-group" action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+<div class="form-row">
+    <div class="col-md-6 mb-3">
+		<label>First Name: </label>
+		<input type="text" class="form-control" name="first_name" value="<?php if($_POST['first_name'])echo $_POST['first_name'] ?>" /><br />
+	</div>
+	<div class="col-md-6 mb-3">
+		<label>Last Name: </label>
+		<input type="text" class="form-control" name="last_name" value="<?php if($_POST['first_name'])echo $_POST['last_name'] ?>" /><br />
+	</div>
+</div>
+<div class="form-row">
+<div class="col-md-6">
+		<label>Username: </label>
+		<input type="text" class="form-control" name="username" value="<?php if($_POST['username'])echo $_POST['username'] ?>" /><br />
+	</div>
+    <div class="col-md-6 mb-3">
+		<label>Email: </label>
+		<input type="text" class="form-control" name="email" value="<?php if($_POST['email'])echo $_POST['email'] ?>" /><br />
+	</div>
+</div>
+<div class="form-row">
+    <div class="col-md-6">
+		<label>Password: </label>
+		<input type="password" class="form-control" name="password" value="<?php if($_POST['password'])echo $_POST['password'] ?>"/><br />
+	</div>
+    <div class="col-md-6">
+		<label>Confirm Password: </label>
+		<input type="password2" class="form-control" name="password2" value="<?php if($_POST['password2'])echo $_POST['password2'] ?>" /><br />
+	</div>
+</div>
+                <input type="submit" class="btn btn-primary" value="Register" name="register_submit" />
              
           </form>
+		  <?php
+if(!empty($errors)){
+	echo "<div class='alert alert-primary' role='alert'>";
+ 	foreach($errors as $error){
+		echo "<p class=\"$error\">".$error."</p>";
+	}
+	echo "</div>";
+}	
+?>
+</div>
+<div class="w-50">
+<img class="img-fluid" style='height: 110%; width: 100%; object-fit: content' src="register.jpg" />
+</div>
+</div>

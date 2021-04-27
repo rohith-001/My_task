@@ -7,21 +7,21 @@ $database = new Database;
 $database->query('SELECT * FROM tasks WHERE id = :id');
 $database->bind(':id',$task_id);
 $row = $database->single();
-
-echo '<h1>'.$row['task_name'].'</h1>';
-
-echo '<h3>Task Description</h3>';
+echo '<div class="m-4">';
+echo '<h1 class="text-primary font-weight-bold text-uppercase">'.$row['task_name'].'</h1>';
 echo '<p>'.$row['task_body'].'</p>';
-
-echo '<h3>Due Date</h3>';
-echo '<p>'.$row['due_date'].'</p>';
-
+echo '<button type="button" class="btn  btn-primary"> Due date <span class="badge badge-warning">'.$row['due_date'].'</span></button>';
 if($row['is_complete'] == 1){
-	echo 'Status: <strong>Complete</strong>';
+	echo '<button type="button" class="btn ml-3 btn-primary"> Status';
+	echo '<span class="badge badge-success ml-2">Complete</span>';
+	echo '</button>';
 } else {
-	echo 'Status: <strong>Incomplete</strong>';
+	echo '<button type="button" class="btn ml-3 btn-primary"> Status';
+	echo '<span class="badge badge-warning ml-2">Incomplete</span>';
+	echo '</button>';
 }
 ?>
 <br />
 <br />
-<a href="?page=edit_task&id=<?php echo $row['id']; ?>">Edit Task</a>
+<a class="btn btn-warning" href="?page=edit_task&id=<?php echo $row['id']; ?>">Edit Task</a>
+</div>

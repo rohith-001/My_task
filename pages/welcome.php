@@ -1,5 +1,3 @@
-<h1>Welcome to myTasks!</h1>
-
 <?php
 if($_SESSION['logged_in']){
 //Instantiate Database object
@@ -14,18 +12,25 @@ $database->query('SELECT * FROM lists WHERE list_user=:list_user');
 $database->bind(':list_user',$list_user);
 $rows = $database->resultset();
 
-echo '<h4>Here are your current lists</h4><br />';
 if($rows){
-echo '<ul class="items">';
+
+echo '<ul class="list-group list-group-horizontal">';
 foreach($rows as $list){
-	echo '<li><a href="?page=list&id='.$list['id'].'">'.$list['list_name'].'</a></li>';
+	echo '<li class="list-group-item m-3 border rounded" style="background:linear-gradient(90deg, #f7971e 0%,#ffd200 100% );"><a class="text-dark nav-link" href="?page=list&id='.$list['id'].'">'.$list['list_name'].'</a></li>';
+	echo '<div class="m-3 fixed-bottom alert alert-primary" role="alert">
+	To Add Another List
+	<button class="btn btn-primary mx-2"><a class="nav-link text-light" href="index.php?page=new_list">Add List</a></button>
+	</div>';
 }
 	echo '</ul>';
+
 } else {
-	echo 'There are no lists available -<a href="index.php?page=new_list">Create One Now</a>';
+	echo '<div class="m-3 fixed-bottom alert alert-primary" role="alert">
+	Your list is empty! Please Add Some List
+	<button class="btn btn-primary mx-2"><a class="nav-link text-light" href="index.php?page=new_list">Add List</a></button>
+	</div>';
 }	
 } else {
-	echo "<p>myTasks is a small but helpful application where you can create and manage tasks to make your life easier. 
-Just register and login and you can start adding tasks";
+	include 'landingPage.php';
 }
 ?>

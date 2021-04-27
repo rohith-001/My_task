@@ -29,12 +29,11 @@ $database->bind(':id',$list_id);
 $row = $database->single();
 ?>
 
-<h1>Edit List</h1>
-<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-	<label>List Name</label><br />
-	<input type="text" name="list_name" value="<?php echo $row['list_name']; ?>" /><br />
+<form class="form-group m-5" action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+	<label  class="text-primary h5 font-weight-bold">List Name</label><br />
+	<input  class="form-control w-100" type="text" name="list_name" value="<?php echo $row['list_name']; ?>" /><br />
 	
-	<label>List Body</label><br />
-	<textarea rows="5" cols="50" name="list_body"><?php echo $row['list_body']; ?></textarea><br />
-	<input type="submit" value="Update" name="submit" />
+	<label  class="text-primary h5 font-weight-bold">List Body</label><br />
+	<textarea class="form-control"  rows="5" cols="50" name="list_body"><?php echo $row['list_body']; ?></textarea><br />
+	<input  class="btn btn-primary" type="submit" value="Update" name="submit" />
 </form>

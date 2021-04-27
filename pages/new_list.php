@@ -21,12 +21,10 @@
 	}
 ?>
 
-
-<h1>Add a List</h1>
-<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-	<label>List Name</label>
-	<input type="text" name="list_name" /><br />
-	<label>List Body</label>
-	<textarea rows="5" cols="50" name="list_body"></textarea><br />
-	<input type="submit" value="Create" name="submit" />
+<form class="form-group m-5" action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+	<label class="text-primary h5 font-weight-bold">List Name</label>
+	<input class="form-control w-100" type="text" name="list_name" /><br />
+	<label class="text-primary h5 font-weight-bold">List Discription</label>
+	<textarea  class="form-control"  rows="5" cols="50" name="list_body"></textarea><br />
+	<input class="btn btn-primary" type="submit" value="Create" name="submit" />
 </form>
