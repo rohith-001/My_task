@@ -1,8 +1,6 @@
 # My-task
 LIVE WEBSITE IS HERE http://mytask.epizy.com/
 
-I am only focus on the back-end not front-end
-
 NOTE!!
 TO RUN THIS PROJECT FILE INTO YOUR LOCAL SYSTEM
 
