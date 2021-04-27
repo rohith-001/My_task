@@ -8,7 +8,7 @@
 $database = new Database;
 
 //set timezone
-date_default_timezone_get('America/New_York');
+// date_default_timezone_get('America/New_York');
 ?>
 
 <?php
@@ -58,47 +58,26 @@ if ($_POST['logout_submit']){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <a href="index.php"><title>myTasks Application</title></a>
-<link href="Css/bootstrap.css" rel="stylesheet">
+<!-- <link href="Css/bootstrap.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <link href="Css/custom.css" rel="stylesheet">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 </head>
 <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-          <div class="container-fluid">
-            <a class="brand" href="#">MY TASK</a>
-            <div class="nav-collapse collapse">
-              <p class="navbar-text pull-right">
-              <?php if($_SESSION['logged_in']){
-                  echo "Hello, ".$_SESSION['username'];
-                }
-              ?>
-              </p>
-              <ul class="nav float-left">
-                <li><a href="index.php?page=welcome">Home</a></li>  
-                    <li><a href="index.php?page=new_list">Add List</a></li>
-                    <li><a href="index.php?page=new_task">Add Task</a></li>
-              </ul>
-              <ul class="nav navbar-nav" style="float:right;">
-                <li><a href="index.php?page=login"><?php if($_SESSION['username']){echo "Log out";} else{echo "Login";}?></a></li>
-                <li><a href="http://localhost/php/hello/">Register</a></li>
-             </ul>
-            </div><!--/.nav-collapse -->
-          </div>
-        </div>
-      </div>
-      
- 
+    <?php 
+        if($_GET['page'] == 'register' || $_GET['page'] == 'login'){
+          }else{
+            include 'pages/nav.php';
+          }
+    ?>
           <div class="span9">
           <?php
-              if($_GET['msg'] == 'listdeleted'){
-                echo '<p class="msg">Your list has been deleted</p>';
-              }
-              if($_GET['page'] == 'register' || $_GET['page'] == ""){
+              if($_GET['page'] == 'register'){
                 include 'pages/register.php';
               } elseif($_GET['page'] == 'list'){
                 include 'pages/list.php';
+              }elseif($_GET['page'] == 'home'){
+                include 'pages/welcome.php';
               } elseif($_GET['page'] == 'task'){
                 include 'pages/task.php';
               } elseif($_GET['page'] == 'new_task'){
@@ -113,18 +92,15 @@ if ($_POST['logout_submit']){
                 include 'pages/login.php';
               } elseif($_GET['page'] == 'delete_list'){
                 include 'pages/delete_list.php';
-              } elseif($_GET['page'] == 'welcome'){
+              } elseif($_GET['page'] == 'welcome' || $_GET['page'] == ""){
                 include 'pages/welcome.php';
               } 
           ?>
           </div><!--/span-->
 		</div><!--/row-->
-      <hr>
 
-      <footer>
-
-      </footer>
     </div><!--/.fluid-container-->
-  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>
